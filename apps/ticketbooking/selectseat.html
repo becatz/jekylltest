@@ -1,0 +1,80 @@
+﻿<div data-notification="" style="position: fixed; text-align: right; top: 10px; right: 10px;">
+</div>
+
+<div ng-class="{row: true, isprocessing: isprocessing}">
+    <div class="col-md-12">
+        <p>
+            Movie {{State.selectedmovie.title}} ({{State.selectedshow.movieformat}}),
+            on {{State.realdatetime(State.selectedshow.showdate, State.selectedshow.showtime) | formatdate:"dddd D MMMM YYYY HH:mm"}},
+            in {{State.selectedcinema.shortname}} {{State.selectedcinema.city}} audi {{State.selectedaudi}} {{State.selectedshow.auditypedesc}}
+            Rp {{State.selectedshow.price | number}} / seat
+        </p>
+        <p>
+            <label>Which seats do you want to book:</label>
+        </p>
+        <svg
+            viewBox="-100 -100 {{SeatLayout.width + 100}} {{SeatLayout.height + 100}}"
+            style="height: 0%">
+            <g>
+                <g ng-repeat="seat in SeatLayout.seats" ng-click="clickseat(seat)">
+                    <circle
+                        ng-class="{seat: true, selected: seat.selected}"
+                        ng-attr-cx="{{seat.cx}}"
+                        ng-attr-cy="{{seat.cy}}"
+                        r="40">
+                    </circle>
+                    <text
+                        class="seatlabel"
+                        ng-attr-x="{{seat.cx}}"
+                        ng-attr-y="{{seat.cy + 20}}"
+                        textLength="60">
+                        {{seat.code}}
+                    </text>
+                    <line
+                        ng-class="{taken: seat.taken}"
+                        ng-attr-x1="{{seat.cx - 40}}"
+                        ng-attr-y1="{{seat.cy - 40}}"
+                        ng-attr-x2="{{seat.cx + 40}}"
+                        ng-attr-y2="{{seat.cy + 40}}">
+                    </line>
+                    <line
+                        ng-class="{taken: seat.taken}"
+                        ng-attr-x1="{{seat.cx - 40}}"
+                        ng-attr-y1="{{seat.cy + 40}}"
+                        ng-attr-x2="{{seat.cx + 40}}"
+                        ng-attr-y2="{{seat.cy - 40}}">
+                    </line>
+                </g>
+            </g>
+            <style type="text/css">
+                circle.seat {
+                    stroke: black;
+                    stroke-width: 10;
+                    fill: none;
+                }
+
+                circle.selected {
+                    fill: blue;
+                }
+
+                text.seatlabel {
+                    text-anchor: middle;
+                    font-size: 40px;
+                }
+
+                line.taken {
+                    stroke: black;
+                    stroke-width: 10;
+                }
+            </style>
+        </svg>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <button ng-click="gotoselectshow()">Change Show</button>
+        <button ng-click="resetselection()">Clear Selection</button>
+        <button ng-click="refreshlayout()">Refresh Layout</button>
+        <button ng-click="reserveseats()">Reserve Seats</button>
+    </div>
+</div>

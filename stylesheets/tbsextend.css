@@ -1,0 +1,11 @@
+body {
+    background-image: url(http://i1144.photobucket.com/albums/o484/nnddcc/article/greyzz_zps6708deb1.png);
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+    }
+}
+.postbox {
+    background-color: #FFFFFF;
+}

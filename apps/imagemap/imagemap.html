@@ -1,0 +1,89 @@
+<div class="col-md-3">
+    <h4>Choose image</h4>
+    <div>
+        <input type="file" fileread="image.imagepath" style="width: auto" />
+    </div>
+    <h4>Or input image URL</h4>
+    <div>
+        <input type="url" ng-model="image.imagepath"
+            placeholder="http://localhost/image.jpg" style="width: auto" />
+    </div>
+    <div>
+        <button type="button" ng-click="loadimage()">Load Image</button>
+    </div>
+    <br />
+    <h4>Areas</h4>
+    <table class="table table-striped">
+        <tr ng-repeat="area in data.areas">
+            <td>
+                <div ng-hide="areaiscurrent(area)">
+                    <button type="button" ng-click="delarea(area)"><i class="icon-minus"></i></button>
+                    <a ng-click="loadarea(area)">{{area.shape}} {{area.alt}}</a>
+                </div>
+                <div ng-show="areaiscurrent(area)">
+                    <button type="button" ng-click="delarea(area)"><i class="icon-minus"></i></button>
+                    Delete This Area
+                        <div>
+                            <input type="text" placeholder="Area Description (alt)" ng-model="area.alt" style="width: auto" />
+                        </div>
+                    <div>
+                        <input type="url" placeholder="Link URL (href)" ng-model="area.href" style="width: auto" />
+                    </div>
+                    <div>
+                        <label>Coordinates</label>
+                    </div>
+                    <div ng-hide="currentarea.coords.length > 0">
+                        <small>Click the image to set coordinates</small>
+                    </div>
+                    <div ng-repeat="c in currentarea.coords">
+                        <button type="button" ng-click="delcoordinate(c)"><i class="icon-minus"></i></button>
+                        {{c.x}},{{c.y}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button type="button" ng-click="newarea()"><i class="icon-plus"></i></button>
+    Add New Area
+</div>
+<div class="col-md-9">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <h4>Result</h4>
+            </div>
+            <textarea class="col-md-6" style="height: 80px">{{getresultstring()}}</textarea>
+        </div>
+        <div class="col-md-3 text-right">
+            Do you like this tool?
+            <br />
+            Tip the author!
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="X7DRATU66CAKA" />
+                <input
+                    type="image"
+                    src="http://i1144.photobucket.com/albums/o484/nnddcc/article/tipjar01_zpsd283f712.gif"
+                    style="border: 0px; width: 45px; height: 72px"
+                    name="submit"
+                    alt="PayPal - The safer, easier way to pay online!" />
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div>
+                <h4>Image</h4>
+            </div>
+            <div ng-hide="data.imagepath.length > 0">
+                <small>Please input the URL of the image and press <em>Load Image</em>.</small>
+            </div>
+            <div style="position: relative; width: {{image.width}}px; height: {{image.height}}px">
+                <img ng-src="{{data.imagepath}}" ng-click="clickimage($event)" />
+                <img src="dot.gif" ng-repeat="c in currentarea.coords"
+                    style="position: absolute; left: {{c.x}}px; top: {{c.y}}px; width: 2px; height: 2px" />
+            </div>
+        </div>
+    </div>
+</div>
