@@ -1,5 +1,6 @@
 markdown: kramdown
 highlighter: rouge
+permalink: /article/:title
 paginate: 5
 exclude: [excludethis]
 timezone: Asia/Jakarta
@@ -9,6 +10,7 @@ gems:
   
 whitelist:
   - jekyll-redirect-from
+  
 # variables
 title: NNDDCC
 tagline: Personal Website of Endy Tjahjono
