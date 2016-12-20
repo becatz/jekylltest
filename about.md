@@ -5,6 +5,8 @@ layout: pages
 
 ### About This Website
 
+Lets add a sentence with a short - dash
+
 Here you can find my writings and some stuff that I have built. I write here mostly about software development issues, but not always.
 
 I try to keep each post focused on one topic, and I tend to update old posts instead of creating a new one with the same topic.
