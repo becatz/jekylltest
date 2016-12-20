@@ -5,7 +5,7 @@ layout: pages
 
 ### About This Website
 
-Lets add a sentence with a short - dash
+Lets add a sentence with a short — dash
 
 Here you can find my writings and some stuff that I have built. I write here mostly about software development issues, but not always.
 
