@@ -2,7 +2,7 @@
 
 Personal web pages of Endy Tjahjono.
 
-<div dir=rtl>hi there </div>
+<div dir=rtl> hi there </div>
 
 
 commit1
