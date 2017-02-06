@@ -20,3 +20,7 @@ You can @mention a GitHub username to generate a link to their profile. The resu
 
 ### Support or Contact
 Having trouble with Pages? Check out the documentation at http://help.github.com/pages or contact support@github.com and we’ll help you sort it out.
+
+|Preview|Part|Buy|
+|---|---|---|
+|<img src="Images/Parts/Capacitors_4.7uF.png" width="70">|4.7μF 0805|[<img src="Images/Shops/ali.png" width="30">](https://www.aliexpress.com/item/Free-shipping-0805-SMD-capacitor-4-7uf-50V-475Z-100PCS/32376068362.html?spm=2114.13010608.0.0.ztsIz3)|
