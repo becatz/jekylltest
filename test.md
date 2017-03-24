@@ -2,7 +2,7 @@ Markdown Read Me
 ===
 
 
-[Get the target environment configuration](file%20with%20spaces)
+[Get the target environment configuration](file%20with%20spaces.md)
 
 <!--
 
